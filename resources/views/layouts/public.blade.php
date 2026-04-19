@@ -18,7 +18,7 @@
                 <div class="flex items-center gap-3">
                     <img src="{{ asset('img/logo_hnn.png') }}" alt="HNN Logo" class="h-10 w-auto">
                     <div class="flex flex-col">
-                        <span class="font-black text-xl tracking-tighter leading-none italic">HNN <span
+                        <span class="font-black text-xl tracking-tighter leading-none">HNN <span
                                 class="text-red-600">MOTOSPORT</span></span>
                     </div>
                 </div>
