@@ -12,7 +12,7 @@
 
 <body class="bg-black text-white font-sans" x-data="{ mobileMenuOpen: false }">
 
-    <nav class="fixed w-full z-50 bg-black/80 backdrop-blur-md border-b border-gray-800">
+    <nav class="fixed top-0 left-0 w-full z-50 bg-black/90 backdrop-blur-md border-b border-gray-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20">
                 <div class="flex items-center gap-3">
