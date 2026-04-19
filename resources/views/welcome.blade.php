@@ -51,66 +51,111 @@
         <div class="absolute bottom-0 right-0 w-1/3 h-1/2 bg-red-600/10 blur-[120px] pointer-events-none"></div>
     </div>
 
-    <!-- Hero End -->
+    <!-- Hero end -->
 
+    <!-- Categories -->
 
-    <div class="py-20 bg-black">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="bg-[#0f0f0f] py-16 border-b border-gray-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-sm font-black text-red-600 uppercase tracking-[0.3em] mb-2">Kategori</h2>
+                <p class="text-3xl font-bold uppercase italic">Cari Berdasarkan Jenis</p>
+            </div>
 
-            <div class="flex justify-between items-end mb-10 border-b border-gray-800 pb-4">
-                <h2 class="text-3xl font-black uppercase tracking-tight flex items-center gap-3">
-                    <span class="w-8 h-1 bg-red-600 block"></span>
-                    Featured Hot Deals
-                </h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                @foreach($categories as $cat)
+                    <a href="/stok-motor?category={{ $cat->slug }}"
+                        class="group bg-black border border-gray-800 p-6 text-center hover:border-red-600 transition duration-500">
+                        <div class="mb-4 flex justify-center">
+                            <div
+                                class="w-12 h-12 bg-gray-900 rounded-full flex items-center justify-center group-hover:bg-red-600 transition duration-500">
+                                <svg class="w-6 h-6 text-gray-500 group-hover:text-white" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <span
+                            class="text-xs font-bold uppercase tracking-widest group-hover:text-red-600">{{ $cat->name }}</span>
+                    </a>
+                @endforeach
+            </div>
+        </div>
+    </div>
+
+    <!-- Categories end -->
+
+    <!-- Recent Items -->
+
+    <div class="py-24 bg-black">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
+                <div>
+                    <h2 class="text-sm font-black text-red-600 uppercase tracking-[0.3em] mb-2">Stok Terbaru</h2>
+                    <p class="text-4xl font-black uppercase italic leading-none text-white">Recent <span
+                            class="text-red-600">Items</span></p>
+                </div>
                 <a href="/stok-motor"
-                    class="text-sm font-bold text-gray-400 hover:text-red-600 uppercase transition hidden md:block">
-                    View All Stock &rarr;
+                    class="text-xs font-bold uppercase tracking-widest text-gray-500 hover:text-white border-b border-gray-800 pb-1 transition">
+                    Lihat Semua Stok &rarr;
                 </a>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 @foreach($recent_vehicles as $bike)
                     <div
-                        class="bg-[#111] border border-gray-800 rounded-sm overflow-hidden group hover:-translate-y-2 hover:border-red-600 transition duration-300 shadow-lg">
-                        <div class="relative h-64 bg-gray-900 flex items-center justify-center overflow-hidden">
-                            <div
-                                class="absolute top-4 left-0 bg-red-600 text-white text-[10px] font-black uppercase px-3 py-1 z-10 shadow-md transform -rotate-45 -translate-x-4 translate-y-2 w-32 text-center">
-                                Special
+                        class="group bg-[#0a0a0a] border border-gray-900 overflow-hidden hover:border-red-600/50 transition duration-500">
+                        <div class="relative h-64 overflow-hidden bg-gray-900">
+                            <div class="absolute top-4 left-4 z-10">
+                                <span class="bg-red-600 text-white text-[10px] font-black px-3 py-1 uppercase tracking-tighter">
+                                    {{ $bike->status }}
+                                </span>
                             </div>
 
-                            <span class="text-gray-700 italic text-sm group-hover:scale-110 transition duration-500">[ Tempat
-                                Gambar Motor ]</span>
+                            <div
+                                class="w-full h-full flex items-center justify-center bg-zinc-900 group-hover:scale-110 transition duration-700">
+                                <p class="text-zinc-700 italic text-sm uppercase font-bold tracking-widest">Image Coming Soon
+                                </p>
+                            </div>
 
-                            <div class="absolute bottom-4 right-0 bg-red-600 px-4 py-2">
-                                <span class="text-white font-black text-lg tracking-tight">RP
-                                    {{ number_format($bike->price, 0, ',', '.') }}</span>
+                            <div
+                                class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                                <a href="#"
+                                    class="px-6 py-3 bg-white text-black font-bold uppercase text-xs tracking-widest hover:bg-red-600 hover:text-white transition duration-300">
+                                    Lihat Detail
+                                </a>
                             </div>
                         </div>
 
                         <div class="p-6">
-                            <p class="text-xs text-gray-500 font-bold uppercase mb-2 tracking-wider">
-                                {{ $bike->brand->name }} &bull; {{ $bike->category->name }}
-                            </p>
-                            <h3
-                                class="text-xl font-bold mb-4 text-white line-clamp-2 leading-snug group-hover:text-red-500 transition">
+                            <div class="flex justify-between items-start mb-2">
+                                <span
+                                    class="text-[10px] font-bold text-red-600 uppercase tracking-widest">{{ $bike->brand->name }}</span>
+                                <span class="text-[10px] font-bold text-gray-500 uppercase italic">{{ $bike->year }}</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-4 group-hover:text-red-500 transition duration-300">
                                 {{ $bike->title }}
                             </h3>
 
-                            <div
-                                class="flex justify-between items-center border-t border-gray-800 pt-4 mt-4 text-xs font-bold text-gray-400 uppercase">
-                                <span>Mileage: <span class="text-white">1,200 Km</span></span>
-                                <a href="#" class="text-red-600 hover:text-white transition flex items-center gap-1">
-                                    Details <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
-                                        </path>
-                                    </svg>
-                                </a>
+                            <div class="flex justify-between items-center border-t border-gray-900 pt-5">
+                                <div class="flex flex-col">
+                                    <span class="text-[10px] text-gray-500 uppercase font-bold">Harga</span>
+                                    <span class="text-lg font-black text-white italic">Rp
+                                        {{ number_format($bike->price, 0, ',', '.') }}</span>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-[10px] text-gray-500 uppercase font-bold block">Mesin</span>
+                                    <span class="text-sm font-bold text-gray-300">{{ $bike->cc }} CC</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 @endforeach
             </div>
-
         </div>
     </div>
+
+    <!-- Recent Items end -->
+
 @endsection
