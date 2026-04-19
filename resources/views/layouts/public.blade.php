@@ -13,7 +13,7 @@
     <nav class="bg-[#111] border-b border-gray-800">
         <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
             <div class="flex items-center gap-4">
-                <img src="{{ asset('img/logo_hnn.jpg') }}" alt="Logo" class="h-12">
+                <img src="{{ asset('img/logo_hnn.png') }}" alt="Logo" class="h-12">
                 <span class="font-bold text-xl tracking-tighter">HNN <span class="text-red-600">MOTOSPORT</span></span>
             </div>
             <div class="hidden md:flex space-x-6 text-sm font-bold uppercase">
