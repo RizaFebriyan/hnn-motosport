@@ -59,7 +59,7 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-12">
                 <h2 class="text-sm font-black text-red-600 uppercase tracking-[0.3em] mb-2">Kategori</h2>
-                <p class="text-3xl font-bold uppercase italic">Cari Berdasarkan Jenis</p>
+                <p class="text-3xl font-bold uppercase">Cari Berdasarkan Jenis</p>
             </div>
 
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
