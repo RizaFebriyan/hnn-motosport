@@ -90,7 +90,7 @@
 
     <div class="py-24 bg-black">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6 md:gap-4">
                 <div>
                     <h2 class="text-sm font-black text-red-600 uppercase tracking-[0.3em] mb-2">Stok Terbaru</h2>
                     <p class="text-4xl font-black uppercase italic leading-none text-white">Recent <span
