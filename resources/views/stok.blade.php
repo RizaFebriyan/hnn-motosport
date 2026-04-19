@@ -59,7 +59,7 @@
 
                             <div class="pt-4 space-y-3">
                                 <button type="submit"
-                                    class="w-full py-4 bg-red-600 text-white font-black uppercase text-[10px] tracking-widest hover:bg-white hover:text-red-600 transition duration-500">
+                                    class="w-full py-3 bg-red-600 text-white font-black uppercase text-[10px] tracking-widest hover:bg-white hover:text-red-600 transition duration-500">
                                     Terapkan Filter
                                 </button>
                                 <a href="{{ route('stok') }}"

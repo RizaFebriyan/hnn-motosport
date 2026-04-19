@@ -73,7 +73,7 @@
                 <p>Kec. Pamulang, Kota Tangerang Selatan, Banten 15414.</p>
             </div>
             <div class="text-center md:text-right text-gray-500 text-xs">
-                <p>&copy; 2026 HNN MotoSport. All rights reserved.</p>
+                <p>&copy; 2026 HNN MotoSport by R.A.F. All rights reserved.</p>
             </div>
         </div>
     </footer>
