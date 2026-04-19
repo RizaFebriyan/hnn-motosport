@@ -30,11 +30,11 @@
     <div class="p-6">
         <div class="flex justify-between items-start mb-2">
             <span
-                class="text-[9px] font-black text-red-600 uppercase tracking-widest">{{ $bike->brand->name ?? 'Brand' }}</span>
-            <span class="text-[9px] font-bold text-gray-600 uppercase italic">{{ $bike->year }}</span>
+                class="text-[13px] font-black text-red-600 uppercase tracking-widest">{{ $bike->brand->name ?? 'Brand' }}</span>
+            <span class="text-[13px] font-bold text-gray-600 uppercase italic">{{ $bike->year }}</span>
         </div>
         <h3
-            class="text-lg font-bold text-white mb-4 group-hover:text-red-500 transition duration-300 uppercase italic tracking-tighter leading-tight">
+            class="text-lg font-bold text-white mb-4 group-hover:text-red-500 transition duration-300 uppercase tracking-tighter leading-tight">
             {{ $bike->title }}
         </h3>
 
@@ -47,7 +47,7 @@
             </div>
             <div class="text-right">
                 <span class="text-[9px] text-gray-600 uppercase font-bold tracking-tighter block">Mesin</span>
-                <span class="text-sm font-bold text-gray-400 italic">{{ $bike->cc ?? '-' }} CC</span>
+                <span class="text-sm font-bold text-gray-400">{{ $bike->cc ?? '-' }} CC</span>
             </div>
         </div>
     </div>
