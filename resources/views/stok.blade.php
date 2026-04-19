@@ -1,7 +1,7 @@
 @extends('layouts.public')
 
 @section('content')
-    <div class="bg-black min-h-screen pt-40 pb-20">
+    <div class="bg-black min-h-screen pt-32 pb-20">
         <div class="max-w-7xl mx-auto px-6">
 
             <div class="mb-16 border-l-4 border-red-600 pl-6">
