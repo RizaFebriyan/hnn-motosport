@@ -16,9 +16,26 @@ class PublicController extends Controller
         return view('welcome', compact('recent_vehicles', 'categories'));
     }
 
-    public function stok()
+    public function stok(Request $request)
     {
-        return view('pages.stok');
+        $query = Vehicle::query();
+
+        // Filter
+        if ($request->has('category') && $request->category != '') {
+            $query->whereHas('category', function ($q) use ($request) {
+                $q->where('slug', $request->category);
+            });
+        }
+
+        if ($request->has('brand') && $request->brand != '') {
+            $query->where('brand_id', $request->brand);
+        }
+
+        $vehicles = $query->latest()->paginate(9);
+        $categories = Catergory::all();
+        $brands = brand::all();
+
+        return view('stok', compact('vehicles', 'categories', 'brands'));
     }
 
     public function tentang()
