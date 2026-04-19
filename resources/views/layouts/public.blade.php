@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HNN MotoSport</title>
+    <link rel="icon" type="image/png" href="{{ asset('img/logo_hnn.png') }}">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
@@ -29,6 +30,19 @@
     <main>
         @yield('content')
     </main>
+
+    <footer class="bg-gray-950 border-t border-gray-900 py-12 mt-20">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div class="text-gray-400 text-sm">
+                <p class="font-bold text-white mb-2">HNN MOTOSPORT</p>
+                <p>Jl. Mujair Raya No.42A, RT.1/RW.4, Bambu Apus,</p>
+                <p>Kec. Pamulang, Kota Tangerang Selatan, Banten 15414.</p>
+            </div>
+            <div class="text-center md:text-right text-gray-500 text-xs">
+                <p>&copy; 2026 HNN MotoSport. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
 </body>
 
