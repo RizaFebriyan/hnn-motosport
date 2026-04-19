@@ -55,7 +55,8 @@
                 <a href="/" class="block py-4 border-b border-gray-900 hover:text-red-600">Beranda</a>
                 <a href="/stok-motor" class="block py-4 border-b border-gray-900 hover:text-red-600">Stok</a>
                 <a href="/tentang-kami" class="block py-4 border-b border-gray-900 hover:text-red-600">Tentang Kami</a>
-                <a href="/jual-kendaraan" class="block py-4 border-b border-gray-900 hover:text-red-600">Jual Kendaraan</a>
+                <a href="/jual-kendaraan" class="block py-4 border-b border-gray-900 hover:text-red-600">Jual
+                    Kendaraan</a>
             </div>
         </div>
     </nav>
