@@ -6,10 +6,10 @@
 
             <div class="mb-16 border-l-4 border-red-600 pl-6">
                 <h1 class="text-4xl md:text-5xl font-black text-white uppercase italic leading-none">
-                    Bike <span class="text-red-600">Stock</span>
+                    Stok <span class="text-red-600">Kendaraan</span>
                 </h1>
-                <p class="text-gray-500 mt-2 uppercase tracking-[0.2em] text-[10px] font-bold">Pilihan Unit Terbaik di
-                    Tangerang Selatan</p>
+                <p class="text-gray-500 mt-2 uppercase tracking-[0.2em] text-[10px] font-bold">Pilihan Unit Kendaraan
+                    Yang Terbaik</p>
             </div>
 
             <div class="flex flex-col lg:flex-row gap-12">

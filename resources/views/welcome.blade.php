@@ -92,9 +92,9 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6 md:gap-4">
                 <div>
-                    <h2 class="text-sm font-black text-red-600 uppercase tracking-[0.3em] mb-2">Stok Terbaru</h2>
-                    <p class="text-4xl font-black uppercase italic leading-none text-white">Recent <span
-                            class="text-red-600">Items</span></p>
+                    <h2 class="text-sm font-black text-red-600 uppercase tracking-[0.3em] mb-2">Recent Items</h2>
+                    <p class="text-4xl font-black uppercase italic leading-none text-white">Stok <span
+                            class="text-red-600">Terbaru</span></p>
                 </div>
                 <a href="/stok-motor"
                     class="text-xs font-bold uppercase tracking-widest text-gray-500 hover:text-white border-b border-gray-800 pb-1 transition">
