@@ -2,50 +2,50 @@
 
 @section('content')
 
-    <div class="relative bg-[#0a0a0a] overflow-hidden border-b border-gray-800">
+    <div class="relative min-h-screen w-full flex items-center bg-[#0a0a0a] overflow-hidden">
         <div class="absolute inset-0">
-            <img src="{{ asset('img/hero-bg.png') }}" alt="HNN MotoSport Showroom"
-                class="w-full h-full object-cover object-center opacity-30 grayscale hover:grayscale-0 transition duration-700">
-            <div class="absolute inset-0 bg-gradient-to-r from-black via-black/90 to-transparent"></div>
-        </div>
-
-        <div
-            class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32 flex flex-col justify-center min-h-[80vh]">
-            <div class="max-w-3xl">
-
-                <div
-                    class="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-red-600/10 border border-red-600/30 text-red-500 text-xs font-bold uppercase tracking-widest mb-6">
-                    <span class="w-2 h-2 rounded-full bg-red-600 animate-pulse"></span>
-                    Dealer Motor & Mobil Bekas Berkualitas - Pamulang
-                </div>
-
-                <h1 class="text-5xl md:text-6xl font-black text-white uppercase tracking-tighter leading-tight mb-6">
-                    Solusi Kendaraan <br>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-red-800">
-                        Bekas Terpercaya
-                    </span>
-                </h1>
-
-                <p class="text-gray-400 text-lg mb-10 border-l-4 border-red-600 pl-4 max-w-2xl">
-                    Tersedia berbagai macam pilihan unit mulai dari Matic, Bebek, Sport, Touring, hingga Mobil Bekas dengan
-                    kondisi prima dan harga bersaing.
-                </p>
-
-                <div class="flex flex-wrap items-center gap-4">
-                    <a href="/stok-motor"
-                        class="px-8 py-4 bg-red-600 text-white font-bold uppercase text-sm tracking-wider hover:bg-white hover:text-red-600 transition duration-300">
-                        Cek Stok Unit
-                    </a>
-                    <a href="https://wa.me/6282218796819" target="_blank"
-                        class="px-8 py-4 bg-transparent border border-gray-600 text-gray-300 font-bold uppercase text-sm tracking-wider hover:border-red-600 hover:text-white transition">
-                        Hubungi Kami
-                    </a>
-                </div>
-
+            <img src="{{ asset('img/hero-bg.png') }}" alt="Hero Background"
+                class="w-full h-full object-cover object-center opacity-40 grayscale">
+            <div
+                class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/20 md:bg-gradient-to-r md:from-black md:via-black/80 md:to-transparent">
             </div>
         </div>
 
-        <div class="absolute -bottom-10 -right-10 w-64 h-64 bg-red-600 blur-[100px] opacity-20 pointer-events-none"></div>
+        <div class="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 md:py-0">
+            <div class="max-w-3xl">
+                <div
+                    class="inline-flex items-center gap-2 px-3 py-1 bg-red-600/20 border border-red-600/40 text-red-500 text-[10px] md:text-xs font-black uppercase tracking-[0.2em] mb-8">
+                    <span class="w-2 h-2 rounded-full bg-red-600 animate-pulse"></span>
+                    Dealer Kendaraan Bekas Berkualitas - Pamulang
+                </div>
+
+                <h1 class="text-4xl md:text-7xl font-black text-white uppercase tracking-tighter leading-[1.1] mb-8">
+                    SOLUSI KENDARAAN <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-red-800 drop-shadow-sm">
+                        BEKAS TERPERCAYA
+                    </span>
+                </h1>
+
+                <p
+                    class="text-gray-300 text-base md:text-xl mb-12 border-l-4 border-red-600 pl-5 max-w-2xl font-light leading-relaxed">
+                    Tersedia berbagai pilihan unit mulai dari **Matic, Bebek, Sport, hingga Mobil Bekas**. Kondisi prima,
+                    surat lengkap, dan harga terbaik di Tangerang Selatan.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center gap-4">
+                    <a href="/stok-motor"
+                        class="w-full sm:w-auto px-10 py-5 bg-red-600 text-white font-black uppercase text-sm tracking-widest hover:bg-white hover:text-red-600 transition duration-500 shadow-xl text-center">
+                        Cek Stok Unit
+                    </a>
+                    <a href="https://wa.me/6282218796819" target="_blank"
+                        class="w-full sm:w-auto px-10 py-5 bg-transparent border border-gray-700 text-white font-black uppercase text-sm tracking-widest hover:border-red-600 transition duration-500 text-center">
+                        Hubungi Kami
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-0 right-0 w-1/3 h-1/2 bg-red-600/10 blur-[120px] pointer-events-none"></div>
     </div>
 
 
