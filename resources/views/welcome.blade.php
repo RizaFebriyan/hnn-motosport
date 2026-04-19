@@ -2,6 +2,8 @@
 
 @section('content')
 
+<!-- Hero Section -->
+
     <div class="relative min-h-screen w-full flex items-center bg-[#0a0a0a] overflow-hidden">
         <div class="absolute inset-0">
             <img src="{{ asset('img/hero-bg.png') }}" alt="Hero Background"
@@ -28,8 +30,8 @@
 
                 <p
                     class="text-gray-300 text-base md:text-xl mb-12 border-l-4 border-red-600 pl-5 max-w-2xl font-light leading-relaxed">
-                    Tersedia berbagai pilihan unit mulai dari **Matic, Bebek, Sport, hingga Mobil Bekas**. Kondisi prima,
-                    surat lengkap, dan harga terbaik di Tangerang Selatan.
+                    Tersedia berbagai pilihan unit mulai dari <b class="font-semibold">Matic, Bebek, Sport, hingga Mobil
+                        Bekas.</b> Kondisi prima, dan harga terbaik di Tangerang Selatan.
                 </p>
 
                 <div class="flex flex-col sm:flex-row items-center gap-4">
@@ -47,6 +49,8 @@
 
         <div class="absolute bottom-0 right-0 w-1/3 h-1/2 bg-red-600/10 blur-[120px] pointer-events-none"></div>
     </div>
+
+    <!-- Hero End -->
 
 
     <div class="py-20 bg-black">
