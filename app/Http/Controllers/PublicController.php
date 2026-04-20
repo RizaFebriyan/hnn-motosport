@@ -65,6 +65,20 @@ class PublicController extends Controller
         return view('stok', compact('vehicles', 'categories', 'brands', 'models', 'years'));
     }
 
+    public function show($slug)
+    {
+        // Mengambil detail kendaraan beserta relasi brand dan kategori
+        $vehicle = Vehicle::with(['brand', 'category'])->where('slug', $slug)->firstOrFail();
+
+        // Mengambil rekomendasi unit serupa (berdasarkan kategori yang sama)
+        $related_vehicles = Vehicle::where('category_id', $vehicle->category_id)
+            ->where('id', '!=', $vehicle->id)
+            ->take(3)
+            ->get();
+
+        return view('detail', compact('vehicle', 'related_vehicles'));
+    }
+
     public function tentang()
     {
         return view('pages.tentang');
