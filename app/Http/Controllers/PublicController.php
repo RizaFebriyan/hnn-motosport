@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Vehicle;
 use App\Models\Category;
 use App\Models\Brand;
+use App\Mail\PenawaranJualMail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class PublicController extends Controller
 {
@@ -81,11 +83,31 @@ class PublicController extends Controller
 
     public function tentang()
     {
-        return view('pages.tentang');
+        return view('tentang');
     }
 
     public function jual()
     {
-        return view('pages.jual');
+        return view('jual');
+    }
+
+    public function sendJual(Request $request)
+    {
+        $request->validate([
+            'nama' => 'required',
+            'whatsapp' => 'required',
+            'merk_tipe' => 'required',
+            'tahun' => 'required|numeric',
+            'km' => 'required',
+            'pajak' => 'required',
+            'foto' => 'required|image|max:2048',
+        ]);
+
+        // Mengambil semua data
+        $data = $request->only(['nama', 'whatsapp', 'merk_tipe', 'tahun', 'km', 'pajak', 'catatan', 'foto']);
+
+        Mail::to('admin@hnnmotosport.com')->send(new \App\Mail\PenawaranJualMail($data));
+
+        return back()->with('success', 'Data berhasil terkirim!');
     }
 }

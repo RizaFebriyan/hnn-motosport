@@ -16,5 +16,6 @@ Route::get('/tentang-kami', [PublicController::class, 'tentang'])->name('tentang
 
 // Halaman Jual Kendaraan
 Route::get('/jual-kendaraan', [PublicController::class, 'jual'])->name('jual');
+Route::post('/jual-kendaraan/send', [PublicController::class, 'sendJual'])->name('jual.send');
 
 require __DIR__ . '/auth.php';
