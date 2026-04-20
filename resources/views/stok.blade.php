@@ -4,7 +4,7 @@
     <div class="bg-black min-h-screen pt-32 pb-20">
         <div class="max-w-7xl mx-auto px-6">
 
-            <div class="mb-16 border-l-4 border-red-600 pl-6">
+            <div class="mb-12 border-l-4 border-red-600 pl-6">
                 <h1 class="text-4xl md:text-5xl font-black text-white uppercase italic leading-none">
                     Stok <span class="text-red-600">Kendaraan</span>
                 </h1>
