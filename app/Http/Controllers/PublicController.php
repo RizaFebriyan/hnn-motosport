@@ -39,8 +39,8 @@ class PublicController extends Controller
         }
 
         // Filter Model
-        if ($request->has('model') && $request->model != '') {
-            $query->where('title', 'like', '%' . $request->model . '%');
+        if ($request->filled('model')) {
+            $query->where('title', $request->model);
         }
 
         // Filter Tahun
@@ -59,11 +59,10 @@ class PublicController extends Controller
         $vehicles = $query->latest()->paginate(12);
         $categories = Category::all();
         $brands = Brand::all();
-
-        // Mengambil daftar tahun unik dari database untuk filter
+        $models = Vehicle::select('title')->distinct()->orderBy('title', 'asc')->pluck('title');
         $years = Vehicle::select('year')->distinct()->orderBy('year', 'desc')->pluck('year');
 
-        return view('stok', compact('vehicles', 'categories', 'brands', 'years'));
+        return view('stok', compact('vehicles', 'categories', 'brands', 'models', 'years'));
     }
 
     public function tentang()
