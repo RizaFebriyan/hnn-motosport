@@ -139,36 +139,10 @@
         const btnSpinner = document.getElementById('btn-spinner');
 
         form.addEventListener('submit', function () {
-            // 1. Nonaktifkan tombol agar tidak bisa diklik dua kali
             btnSubmit.disabled = true;
             btnSubmit.classList.add('cursor-not-allowed', 'opacity-80');
-
-            // 2. Ubah tampilan teks dan munculkan spinner
             btnText.innerText = 'Sedang Mengirim...';
             btnSpinner.classList.remove('hidden');
         });
-
-        function sendToWhatsApp() {
-            const name = document.getElementById('name').value;
-            const motor = document.getElementById('motor').value;
-            const year = document.getElementById('year').value;
-            const km = document.getElementById('km').value;
-            const notes = document.getElementById('notes').value;
-
-            if (!name || !motor || !year) {
-                alert('Mohon isi data utama terlebih dahulu.');
-                return;
-            }
-
-            const phoneNumber = "6281234567890"; // Ganti dengan nomor admin HNN Motosport
-            const message = `Halo HNN Motosport, saya ingin menjual motor:%0A%0A` +
-                `*Nama:* ${name}%0A` +
-                `*Unit:* ${motor} (${year})%0A` +
-                `*Odo:* ${km} km%0A` +
-                `*Catatan:* ${notes}%0A%0A` +
-                `_(Saya akan melampirkan foto motor setelah pesan ini terkirim)_`;
-
-            window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
-        }
     </script>
 @endsection
