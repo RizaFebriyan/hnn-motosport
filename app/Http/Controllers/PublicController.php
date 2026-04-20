@@ -21,32 +21,49 @@ class PublicController extends Controller
     {
         $query = Vehicle::query();
 
-        // Category filter
+        // Filter Pencarian (Search) - Berdasarkan judul unit
+        if ($request->has('search') && $request->search != '') {
+            $query->where('title', 'like', '%' . $request->search . '%');
+        }
+
+        // Filter Kategori
         if ($request->has('category') && $request->category != '') {
             $query->whereHas('category', function ($q) use ($request) {
                 $q->where('slug', $request->category);
             });
         }
 
-        // Brand filter
-        if ($request->filled('brand')) {
+        // Filter Brand
+        if ($request->has('brand') && $request->brand != '') {
             $query->where('brand_id', $request->brand);
         }
 
-        // Price filter
+        // Filter Model
+        if ($request->has('model') && $request->model != '') {
+            $query->where('title', 'like', '%' . $request->model . '%');
+        }
+
+        // Filter Tahun
+        if ($request->has('year') && $request->year != '') {
+            $query->where('year', $request->year);
+        }
+
+        // Filter Harga
         if ($request->filled('min_price')) {
             $query->where('price', '>=', $request->min_price);
         }
-
         if ($request->filled('max_price')) {
             $query->where('price', '<=', $request->max_price);
         }
 
-        $vehicles = $query->with(['brand', 'category'])->latest()->paginate(9);
+        $vehicles = $query->latest()->paginate(12);
         $categories = Category::all();
         $brands = Brand::all();
 
-        return view('stok', compact('vehicles', 'categories', 'brands'));
+        // Mengambil daftar tahun unik dari database untuk filter
+        $years = Vehicle::select('year')->distinct()->orderBy('year', 'desc')->pluck('year');
+
+        return view('stok', compact('vehicles', 'categories', 'brands', 'years'));
     }
 
     public function tentang()
