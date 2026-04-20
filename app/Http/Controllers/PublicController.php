@@ -100,13 +100,14 @@ class PublicController extends Controller
             'tahun' => 'required|numeric',
             'km' => 'required',
             'pajak' => 'required',
-            'foto' => 'required|image|max:2048',
+            'foto' => 'required|array|min:1',
+            'foto.*' => 'image|mimes:jpeg,png,jpg|max:2048',
         ]);
 
         // Mengambil semua data
         $data = $request->only(['nama', 'whatsapp', 'merk_tipe', 'tahun', 'km', 'pajak', 'catatan', 'foto']);
 
-        Mail::to('admin@hnnmotosport.com')->send(new \App\Mail\PenawaranJualMail($data));
+        Mail::to('riza6500@gmail.com')->send(new \App\Mail\PenawaranJualMail($data));
 
         return back()->with('success', 'Data berhasil terkirim!');
     }

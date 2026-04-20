@@ -141,26 +141,27 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggleBtn = document.getElementById('filterToggle');
+            const sidebar = document.getElementById('filterSidebar');
+            const icon = document.getElementById('filterIcon');
+
+            if (toggleBtn) {
+                toggleBtn.addEventListener('click', function () {
+                    // Toggle class 'hidden' pada sidebar
+                    sidebar.classList.toggle('hidden');
+
+                    // Animasi rotasi icon panah
+                    if (sidebar.classList.contains('hidden')) {
+                        icon.style.transform = 'rotate(0deg)';
+                    } else {
+                        icon.style.transform = 'rotate(180deg)';
+                    }
+                });
+            }
+        });
+    </script>
+
 @endsection
-
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const toggleBtn = document.getElementById('filterToggle');
-        const sidebar = document.getElementById('filterSidebar');
-        const icon = document.getElementById('filterIcon');
-
-        if (toggleBtn) {
-            toggleBtn.addEventListener('click', function () {
-                // Toggle class 'hidden' pada sidebar
-                sidebar.classList.toggle('hidden');
-
-                // Animasi rotasi icon panah
-                if (sidebar.classList.contains('hidden')) {
-                    icon.style.transform = 'rotate(0deg)';
-                } else {
-                    icon.style.transform = 'rotate(180deg)';
-                }
-            });
-        }
-    });
-</script>

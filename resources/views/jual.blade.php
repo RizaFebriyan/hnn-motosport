@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="bg-black min-h-screen pt-32 pb-20">
-        <div class="max-w-2xl mx-auto px-6">
+        <div class="max-w-7xl mx-auto px-6">
 
             <div class="text-center mb-12">
                 <span class="text-red-600 font-black uppercase tracking-[0.3em] text-xs">Trade-In & Cash</span>
@@ -17,6 +17,14 @@
 
             <div class="max-w-2xl mx-auto px-6">
                 <div class="bg-[#0a0a0a] border border-gray-900 p-10 shadow-2xl">
+                    @if(session('success'))
+                        <div id="success-alert"
+                            class="mb-6 p-4 bg-green-900/30 border border-green-600 text-green-400 text-xs font-bold uppercase tracking-widest flex justify-between items-center">
+                            <span>{{ session('success') }}</span>
+                            <button onclick="document.getElementById('success-alert').remove()"
+                                class="text-green-400 hover:text-white">&times;</button>
+                        </div>
+                    @endif
                     <form action="{{ route('jual.send') }}" method="POST" enctype="multipart/form-data" class="space-y-6">
                         @csrf
 
@@ -71,8 +79,8 @@
 
                         <div class="space-y-2">
                             <label class="text-[10px] text-gray-500 uppercase font-black tracking-widest">Foto Kendaraan
-                                (Maks 2MB)</label>
-                            <input type="file" name="foto" accept="image/*" required
+                                (Bisa Pilih Banyak)</label>
+                            <input type="file" name="foto[]" accept="image/*" multiple required
                                 class="w-full bg-black border border-gray-800 text-gray-400 p-3 text-xs file:bg-red-600 file:border-none file:text-white file:px-4 file:py-2 file:mr-4 file:text-[10px] file:font-black file:uppercase cursor-pointer">
                         </div>
 
@@ -83,9 +91,18 @@
                                 class="w-full bg-black border border-gray-800 text-white p-4 text-xs focus:border-red-600 outline-none transition"></textarea>
                         </div>
 
-                        <button type="submit"
-                            class="w-full py-5 bg-red-600 text-white font-black uppercase text-xs tracking-[0.2em] hover:bg-white hover:text-red-600 transition duration-500">
-                            Kirim Penawaran Sekarang
+                        <button type="submit" id="btn-submit"
+                            class="w-full py-5 bg-red-600 text-white font-black uppercase text-xs tracking-[0.2em] hover:bg-white hover:text-red-600 transition duration-500 flex justify-center items-center gap-3">
+                            <span id="btn-text">Kirim Penawaran Sekarang</span>
+
+                            <svg id="btn-spinner" class="hidden animate-spin h-5 w-5 text-current"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4">
+                                </circle>
+                                <path class="opacity-75" fill="currentColor"
+                                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                                </path>
+                            </svg>
                         </button>
                     </form>
                 </div>
@@ -116,6 +133,21 @@
     </div>
 
     <script>
+        const form = document.querySelector('form');
+        const btnSubmit = document.getElementById('btn-submit');
+        const btnText = document.getElementById('btn-text');
+        const btnSpinner = document.getElementById('btn-spinner');
+
+        form.addEventListener('submit', function () {
+            // 1. Nonaktifkan tombol agar tidak bisa diklik dua kali
+            btnSubmit.disabled = true;
+            btnSubmit.classList.add('cursor-not-allowed', 'opacity-80');
+
+            // 2. Ubah tampilan teks dan munculkan spinner
+            btnText.innerText = 'Sedang Mengirim...';
+            btnSpinner.classList.remove('hidden');
+        });
+
         function sendToWhatsApp() {
             const name = document.getElementById('name').value;
             const motor = document.getElementById('motor').value;

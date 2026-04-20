@@ -37,13 +37,17 @@ class PenawaranJualMail extends Mailable
 
     public function attachments(): array
     {
-        if (isset($this->data['foto'])) {
-            return [
-                Attachment::fromPath($this->data['foto']->getRealPath())
-                    ->as($this->data['foto']->getClientOriginalName())
-                    ->withMime($this->data['foto']->getMimeType()),
-            ];
+        $attachments = [];
+
+        // Cek jika ada file yang diunggah
+        if (isset($this->data['foto']) && is_array($this->data['foto'])) {
+            foreach ($this->data['foto'] as $file) {
+                $attachments[] = Attachment::fromPath($file->getRealPath())
+                    ->as($file->getClientOriginalName())
+                    ->withMime($file->getMimeType());
+            }
         }
-        return [];
+
+        return $attachments;
     }
 }
