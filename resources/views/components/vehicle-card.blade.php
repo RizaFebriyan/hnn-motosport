@@ -20,7 +20,7 @@
 
         <div
             class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-            <a href="#"
+            <a href="{{ route('stok.show', $bike->slug) }}"
                 class="px-6 py-3 bg-white text-black font-black uppercase text-[10px] tracking-widest hover:bg-red-600 hover:text-white transition duration-300">
                 Detail Unit
             </a>
@@ -33,12 +33,12 @@
                 class="text-[13px] font-black text-red-600 uppercase tracking-widest">{{ $bike->brand->name ?? 'Brand' }}</span>
             <span class="text-[13px] font-bold text-gray-600 uppercase italic">{{ $bike->year }}</span>
         </div>
-        <h3
-            class="text-lg font-bold text-white mb-4 group-hover:text-red-500 transition duration-300 uppercase tracking-tighter leading-tight">
+        <a href="{{ route('stok.show', $bike->slug) }}"
+            class="text-lg font-bold text-white group-hover:text-red-500 transition duration-300 uppercase tracking-tighter leading-tight">
             {{ $bike->title }}
-        </h3>
+        </a>
 
-        <div class="flex justify-between items-center border-t border-gray-900 pt-5">
+        <div class="flex justify-between items-center border-t border-gray-900 pt-5 mt-4">
             <div class="flex flex-col">
                 <span class="text-[9px] text-gray-600 uppercase font-bold tracking-tighter">Harga</span>
                 <span class="text-lg font-black text-white italic tracking-tighter">
